@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sip Calculator</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        width: 700px;
+        /* width: 400px; */
+        margin: 0 auto;
+        border: 1px solid black;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 5px 5px 10px rgb(172, 168, 168);
+      }
+      .heading {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .form-group {
+        margin-bottom: 30px;
+        margin: 40px;
+        padding: 50px;
+        border-radius: 8px;
+        background-color: rgb(224, 214, 214);
+        box-sizing: border-box;
+      }
+       #sliderValue, #year, #investAmount{
+
+        /* background-color: orange; */
+
+        margin-left: 10px;
+        font-size: large;
+        font-weight: bold;
+
+
+
+      }
+      label {
+        font-size: 20px;
+      }
+      input[type="number"] {
+        /* display: inline; */
+        /* min-width: 20px; */
+        width: 127px;
+        background-color: rgb(172, 168, 168);
+        border: none;
+        margin-top: 2px;
+        border-bottom: 1px solid;
+      }
+      input[type="range"] {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 30px;
+        height: 1px;
+        color: rgb(196, 42, 42);
+        background: #0056b3;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="heading">Sip Calculator</h2>
+      <div class="form-group">
+        <label for="slider">Money required for your dream car : </label>
+        <span id="sliderValue">5000</span>
+
+        <input
+          type="range"
+          id="slider"
+          min="5000"
+          max="10000000"
+          value="50"
+          step="1"
+          onchange="updateValue(this.value)"
+        />
+      </div>
+      <div class="form-group">
+        <label for="yearRange">You want to buy in :</label>
+        <span id="year">1</span>
+        <input
+        type="range"
+        id="yearRange"
+        min="1"
+        max="40"
+        value="1"
+        step="1"
+        onchange="updateYearValue(this.value)"
+      />
+
+      </div>
+      <div class="form-group">
+        <label for="investAmount">Amount you can invest today</label>
+        <span id="investAmount">500</span>
+        <input
+        type="range"
+        id="amount"
+        min="500"
+        max="10000000"
+        value="500"
+        step="1"
+        onchange="updateInvestAmountValue(this.value)"
+      />
+
+      </div>
+    </div>
+  </body>
+  <script>
+    function updateValue(value) {
+    
+      document.getElementById("sliderValue").textContent = value;
+
+     
+    }
+
+
+    function updateYearValue(value){
+      document.getElementById("year").textContent = value
+    }
+
+    function updateInvestAmountValue(value){
+      document.getElementById("investAmount").textContent = value
+    }
+   </script> 
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Range</title>
+</head>
+<body>
+    <label for="range">Adjust the range: </label>
+    <input type="range" id="range" min="0" max="100" step="1" value="50">
+    <p>Current value: <span id="rangeValue">50</span></p>
+
+    <div>
+        <label for="min">Set Min: </label>
+        <input type="number" id="min" value="0">
+        <label for="max">Set Max: </label>
+        <input type="number" id="max" value="100">
+        <label for="step">Set Step: </label>
+        <input type="number" id="step" value="1">
+        <button id="updateRange">Update Range</button>
+    </div>
+
+    <script>
+        const range = document.getElementById('range');
+        const rangeValue = document.getElementById('rangeValue');
+        const minInput = document.getElementById('min');
+        const maxInput = document.getElementById('max');
+        const stepInput = document.getElementById('step');
+        const updateButton = document.getElementById('updateRange');
+
+        // Update displayed value when the range slider changes
+        range.addEventListener('input', () => {
+            rangeValue.textContent = range.value;
+        });
+
+        // Dynamically update range attributes
+        updateButton.addEventListener('click', () => {
+            const min = parseInt(minInput.value, 10);
+            const max = parseInt(maxInput.value, 10);
+            const step = parseInt(stepInput.value, 10);
+
+            if (min < max) {
+                range.min = min;
+                range.max = max;
+                range.step = step;
+
+                // Adjust current value if it's out of new bounds
+                if (range.value < min) range.value = min;
+                if (range.value > max) range.value = max;
+
+                rangeValue.textContent = range.value;
+            } else {
+                alert('Min value should be less than Max value.');
+            }
+        });
+    </script>
+</body>
+</html> -->
